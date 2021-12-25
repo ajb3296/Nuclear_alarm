@@ -1,0 +1,5 @@
+py-cord
+EZPaginator
+psutil
+lxml
+datetime
