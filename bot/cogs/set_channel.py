@@ -2,15 +2,20 @@ import discord
 from discord.ext import commands
 
 from bot.utils.database import find_channel, set_channel
-from bot import LOGGER, BOT_NAME_TAG_VER, color_code
+from bot import LOGGER, BOT_NAME_TAG_VER, color_code, OWNERS
 
 class setChannel (commands.Cog) :
     def __init__ (self, bot) :
         self.bot = bot
         self.header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'}
 
-    @commands.command(name = 'set', aliases = ['설정', '채널설정', '알람설정'])
+    @commands.command(name = 'set', aliases = ['설정', '채널설정', '알람설정', '알림설정'])
     async def set(self, ctx, onoff : str):
+        if ctx.author.id not in OWNERS:
+            if not ctx.message.author.guild_permissions.manage_messages or ctx.author.id not in OWNERS:
+                embed=discord.Embed(title="이 명령어는 서버의 관리자만이 사용할 수 있습니다!")
+                embed.set_footer(text=BOT_NAME_TAG_VER)
+                return await ctx.send(embed=embed)
         if onoff == "켜기" or onoff == "on":
             onoff = "on"
         elif onoff == "끄기" or onoff == "off":
@@ -36,6 +41,11 @@ class setChannel (commands.Cog) :
     
     @commands.command(name = 'everyone', aliases = ['전체맨션설정', '전체맨션'])
     async def everyone(self, ctx, onoff : str):
+        if ctx.author.id not in OWNERS:
+            if not ctx.message.author.guild_permissions.manage_messages:
+                embed=discord.Embed(title="이 명령어는 서버의 관리자만이 사용할 수 있습니다!")
+                embed.set_footer(text=BOT_NAME_TAG_VER)
+                return await ctx.send(embed=embed)
         if onoff == "켜기" or onoff == "on":
             onoff = "on"
         elif onoff == "끄기" or onoff == "off":
@@ -58,7 +68,7 @@ class setChannel (commands.Cog) :
         embed.set_footer(text=BOT_NAME_TAG_VER)
         await ctx.send(embed=embed)
 
-    @commands.command(name = 'alarm', aliases = ['알람'])
+    @commands.command(name = 'alarm', aliases = ['알람', '알림'])
     async def alarm(self, ctx) :
         channelData = await find_channel(ctx.channel.id)
         if channelData is not None:

@@ -4,7 +4,7 @@ from discord.ext import commands
 
 from bot.utils.database import get_channels_list
 from bot.background.warn import npp_status, alarm
-from bot import LOGGER
+from bot import LOGGER, OWNERS, BOT_NAME_TAG_VER
 
 class testAlarm (commands.Cog) :
     def __init__ (self, bot) :
@@ -13,6 +13,10 @@ class testAlarm (commands.Cog) :
 
     @commands.command(name = 'testa', aliases = ['테스트'])
     async def testa(self, ctx):
+        if not ctx.author.id in OWNERS:
+            embed=discord.Embed(title="이 명령어는 개발자만이 사용할 수 있습니다!")
+            embed.set_footer(text=BOT_NAME_TAG_VER)
+            return await ctx.send(embed=embed)
 
         radiationKori    = random.randrange(1, 5000) + random.random()
         radiationHanbit  = random.randrange(1, 5000) + random.random()

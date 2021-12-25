@@ -33,7 +33,7 @@ async def warn(bot):
         # id, on/off, everyone
         channels_list = await get_channels_list()
 
-        if channels_list != "":
+        if channels_list is not None:
             for channel in channels_list:
                 if statusKori != "🟢 정상":
                     await alarm(bot, "고리", channel, statusKori, radiationKori)

@@ -9,14 +9,6 @@ class About (commands.Cog) :
 
     @commands.command (aliases = ['봇', '개발자', '봇정보', '봇관련', '관련', '정보', 'info'])
     async def about (self, ctx) :
-        player_server_count=0
-        for i in self.bot.guilds:
-            player = self.bot.lavalink.player_manager.get(int(i.id))
-            try:
-                if player.is_connected:
-                    player_server_count+=1
-            except Exception:
-                pass
         embed=discord.Embed(title="봇에 대한 정보", description=f"""{AboutBot}
 
 소스코드 : [Github](https://github.com/ajb3296/Nuclear_alarm)""", color=color_code)
