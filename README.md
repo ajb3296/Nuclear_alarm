@@ -3,7 +3,7 @@
 이 봇은 제 2회 [한국 디스코드 리스트](https://koreanbots.dev/https://koreanbots.dev/) 해커톤 출품작입니다.
 
 ## Screenshot
-![test_screenshot](/image/스크린샷 2021-12-25 오후 6.10.14.png)
+![test_screenshot](https://github.com/ajb3296/Nuclear_alarm/blob/main/image/스크린샷%202021-12-25%20오후%206.10.14.png?raw=true)
 
 ## How to install
 
