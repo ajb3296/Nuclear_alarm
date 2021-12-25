@@ -8,7 +8,7 @@ async def find_channel(channel : int):
         cur.execute("SELECT * FROM channels_data WHERE id=:Id", {"Id": channel})
         channelData = cur.fetchone()
         conn.close()
-            
+
         return channelData
 
 async def get_channels_list():

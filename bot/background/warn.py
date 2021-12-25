@@ -12,39 +12,43 @@ async def warn(bot):
 
     while True:
 
-        checkKori    = await parse_nuclear_status(Kori)
-        checkHanbit  = await parse_nuclear_status(Hanbit)
-        checkHanul   = await parse_nuclear_status(Hanul)
-        checkWolsong = await parse_nuclear_status(Wolsong)
-        checkSaewool = await parse_nuclear_status(Saewool)
+        try:
 
-        radiationKori    = await cal_nuclear_average(checkKori["area"])
-        radiationHanbit  = await cal_nuclear_average(checkHanbit["area"])
-        radiationHanul   = await cal_nuclear_average(checkHanul["area"])
-        radiationWolsong = await cal_nuclear_average(checkWolsong["area"])
-        radiationSaewool = await cal_nuclear_average(checkSaewool["area"])
+            checkKori    = await parse_nuclear_status(Kori)
+            checkHanbit  = await parse_nuclear_status(Hanbit)
+            checkHanul   = await parse_nuclear_status(Hanul)
+            checkWolsong = await parse_nuclear_status(Wolsong)
+            checkSaewool = await parse_nuclear_status(Saewool)
 
-        statusKori    = await npp_status(radiationKori)
-        statusHanbit  = await npp_status(radiationHanbit)
-        statusHanul   = await npp_status(radiationHanul)
-        statusWolsong = await npp_status(radiationWolsong)
-        statusSaewool = await npp_status(radiationSaewool)
+            radiationKori    = await cal_nuclear_average(checkKori["area"])
+            radiationHanbit  = await cal_nuclear_average(checkHanbit["area"])
+            radiationHanul   = await cal_nuclear_average(checkHanul["area"])
+            radiationWolsong = await cal_nuclear_average(checkWolsong["area"])
+            radiationSaewool = await cal_nuclear_average(checkSaewool["area"])
 
-        # id, on/off, everyone
-        channels_list = await get_channels_list()
+            statusKori    = await npp_status(radiationKori)
+            statusHanbit  = await npp_status(radiationHanbit)
+            statusHanul   = await npp_status(radiationHanul)
+            statusWolsong = await npp_status(radiationWolsong)
+            statusSaewool = await npp_status(radiationSaewool)
 
-        if channels_list is not None:
-            for channel in channels_list:
-                if statusKori != "🟢 정상":
-                    await alarm(bot, "고리", channel, statusKori, radiationKori)
-                if statusHanbit != "🟢 정상":
-                    await alarm(bot, "한빛", channel, statusHanbit, radiationHanbit)
-                if statusHanul != "🟢 정상":
-                    await alarm(bot, "한울", channel, statusHanul, radiationHanul)
-                if statusWolsong != "🟢 정상":
-                    await alarm(bot, "월성", channel, statusWolsong, radiationWolsong)
-                if statusSaewool != "🟢 정상":
-                    await alarm(bot, "새울", channel, statusSaewool, radiationSaewool)
+            # id, on/off, everyone
+            channels_list = await get_channels_list()
+
+            if channels_list is not None:
+                for channel in channels_list:
+                    if statusKori != "🟢 정상":
+                        await alarm(bot, "고리", channel, statusKori, radiationKori)
+                    if statusHanbit != "🟢 정상":
+                        await alarm(bot, "한빛", channel, statusHanbit, radiationHanbit)
+                    if statusHanul != "🟢 정상":
+                        await alarm(bot, "한울", channel, statusHanul, radiationHanul)
+                    if statusWolsong != "🟢 정상":
+                        await alarm(bot, "월성", channel, statusWolsong, radiationWolsong)
+                    if statusSaewool != "🟢 정상":
+                        await alarm(bot, "새울", channel, statusSaewool, radiationSaewool)
+        except Exception:
+            pass
 
         await asyncio.sleep(60)
 
