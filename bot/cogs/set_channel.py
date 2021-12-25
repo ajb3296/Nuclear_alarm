@@ -39,7 +39,7 @@ class setChannel (commands.Cog) :
         embed.set_footer(text=BOT_NAME_TAG_VER)
         await ctx.send(embed=embed)
     
-    @commands.command(name = 'everyone', aliases = ['전체맨션설정', '전체맨션'])
+    @commands.command(name = 'everyone', aliases = ['전체맨션설정', '전체맨션', '맨션설정'])
     async def everyone(self, ctx, onoff : str):
         if ctx.author.id not in OWNERS:
             if not ctx.message.author.guild_permissions.manage_messages:
