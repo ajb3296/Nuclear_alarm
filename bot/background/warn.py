@@ -88,7 +88,11 @@ async def alarm(bot, name, channel, status, radiation):
         color = color_code
     try:
         if channel[1] == "on":
-            embed=discord.Embed(title=f"[ {name} ] 원자력 발전소에서 원자력 사고가 의심됩니다!", description=f"{name} 원자력 발전소 방사선량 평균 : {radiation}μSv/h\n상태 : {status}", color=color)
+            if status == "🔴 비상":
+                status_msg = "한국을 떠나십시오."
+            else:
+                status_msg = "한국을 떠날 준비를 하십시오."
+            embed=discord.Embed(title=f"[ {name} ] 원자력 발전소에서 원자력 사고가 의심됩니다!", description=f"{name} 원자력 발전소 방사선량 평균 : {radiation}μSv/h\n상태 : {status}\n{status_msg}", color=color)
             embed.set_footer(text=BOT_NAME_TAG_VER)
             await target_channel.send(embed=embed)
             if channel[2] == "on":
