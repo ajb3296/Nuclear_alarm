@@ -5,7 +5,7 @@ import asyncio
 from bot import color_code, red_code, orange_code, BOT_NAME_TAG_VER
 from bot.utils.crawler import getText
 from bot.utils.database import get_channels_list
-from bot import Kori, Hanbit, Hanul, Wolsong, Saewool
+from bot import LOGGER, Kori, Hanbit, Hanul, Wolsong, Saewool
 
 async def warn(bot):
     # 마이크로시버트(µSv)/h 단위 계산
@@ -47,8 +47,11 @@ async def warn(bot):
                         await alarm(bot, "월성", channel, statusWolsong, radiationWolsong)
                     if statusSaewool != "🟢 정상":
                         await alarm(bot, "새울", channel, statusSaewool, radiationSaewool)
-        except Exception:
+        except Exception as a:
+            LOGGER.error(f"Warn check error - {a}")
             pass
+
+        LOGGER.info("Warn checked")
 
         await asyncio.sleep(60)
 
