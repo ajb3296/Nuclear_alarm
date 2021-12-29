@@ -1,5 +1,5 @@
 # 원전알리미
-[![CodeFactor](https://www.codefactor.io/repository/github/ajb3296/nuclear_alarm/badge)](https://www.codefactor.io/repository/github/ajb3296/nuclear_alarm)<br>
+[![CodeFactor](https://www.codefactor.io/repository/github/ajb3296/nuclear_alarm/badge)](https://www.codefactor.io/repository/github/ajb3296/nuclear_alarm)<br><br>
 이 봇은 제 2회 [한국 디스코드 리스트](https://koreanbots.dev/https://koreanbots.dev/) 해커톤 출품작입니다.<br>
 봇 초대는 [이곳](https://discord.com/oauth2/authorize?client_id=923937385727811585&permissions=149504&scope=bot) 을 누르세요
 
