@@ -3,6 +3,10 @@
 이 봇은 제 2회 [한국 디스코드 리스트](https://koreanbots.dev/https://koreanbots.dev/) 해커톤 출품작입니다.<br>
 봇 초대는 [이곳](https://discord.com/oauth2/authorize?client_id=923937385727811585&permissions=149504&scope=bot) 을 누르세요
 
+## 수상 기록
+![수상](https://github.com/ajb3296/Nuclear_alarm/blob/main/image/수상.png?raw=true)
+놀랍게도 이걸로 치킨을 탔습니다.
+
 ## Screenshot
 ![test_screenshot](https://github.com/ajb3296/Nuclear_alarm/blob/main/image/스크린샷%202021-12-25%20오후%206.10.14.png?raw=true)
 
