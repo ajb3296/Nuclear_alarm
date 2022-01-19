@@ -4,7 +4,7 @@
 봇 초대는 [이곳](https://discord.com/oauth2/authorize?client_id=923937385727811585&permissions=149504&scope=bot) 을 누르세요
 
 ## 수상 기록
-![수상](https://github.com/ajb3296/Nuclear_alarm/blob/main/image/수상.png?raw=true)
+<img src="https://github.com/ajb3296/Nuclear_alarm/blob/main/image/%EC%88%98%EC%83%81.png?raw=true width="600"/>
 놀랍게도 이걸로 치킨을 탔습니다.
 
 ## Screenshot
