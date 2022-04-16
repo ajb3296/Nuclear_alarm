@@ -42,7 +42,7 @@ class setChannel (commands.Cog) :
     @commands.command(name = 'everyone', aliases = ['전체맨션설정', '전체맨션', '맨션설정'])
     async def everyone(self, ctx, onoff : str):
         if ctx.author.id not in OWNERS:
-            if not ctx.message.author.guild_permissions.manage_messages:
+            if not ctx.author.guild_permissions.manage_messages:
                 embed=discord.Embed(title="이 명령어는 서버의 관리자만이 사용할 수 있습니다!")
                 embed.set_footer(text=BOT_NAME_TAG_VER)
                 return await ctx.send(embed=embed)
